@@ -2,6 +2,17 @@ const jwt = require('jsonwebtoken')
 
 module.exports = (req, res, next) => {
 
+  const bypassRoutes = [
+    { url: '/users/login', method: 'POST' }
+  ]
+
+  for(let route of bypassRoutes) {
+    if(route.url === req.url && route.method === req.method) {
+      next()
+      return
+    }
+  }
+
   // É necessário ter o token para continuar 
   const bearerHeader = req.headers['authorization']
   
@@ -23,7 +34,7 @@ module.exports = (req, res, next) => {
     // request para usar depois
     req.authUser = decoded
 
-    console.log({authUser: req.authUser})
+    //console.log({authUser: req.authUser})
 
     next()
   })
