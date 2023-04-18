@@ -7,3 +7,9 @@ npx sequelize-cli model:generate --name PaymentMethod --attributes description:s
 
 // Comando para gerar apenas uma migration (sem model)
 npx sequelize-cli migration:generate --name alter-table-users
+
+npx sequelize-cli model:generate --name Supplier --attributes name:string,address:text,phone:string
+
+npx sequelize-cli model:generate --name Product --attributes description:string,quantity:decimal,unit:enum,suppler_id:integer
+
+npx sequelize-cli migration:generate --name alter-table-products

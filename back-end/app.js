@@ -54,4 +54,10 @@ app.use('/payment_methods', paymentMethods)
 const tags = require('./routes/tags')
 app.use('/tags', tags)
 
+const suppliers = require('./routes/suppliers')
+app.use('/suppliers', suppliers)
+
+const products = require('./routes/products')
+app.use('/products', products)
+
 module.exports = app;

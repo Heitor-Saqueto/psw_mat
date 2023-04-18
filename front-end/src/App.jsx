@@ -1,9 +1,10 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -13,7 +14,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
