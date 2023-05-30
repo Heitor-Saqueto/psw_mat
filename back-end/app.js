@@ -9,10 +9,14 @@ var logger = require('morgan');
 
 var app = express();
 
-// Habilita que qualquer origem de front-end possa
+// Habilita que apenas o front-end indicado
+// na variável process.env.FRONT_ORIGIN possa
 // acessar o back-end
 const cors = require('cors')
-app.use(cors())
+app.use(cors({
+  origin: process.env.FRONT_ORIGIN,
+  credentials: true // Exige o envio de cookie com credenciais
+}))
 
 // Conexão ao BD ------------------------------------------
 const db = require('./models')
